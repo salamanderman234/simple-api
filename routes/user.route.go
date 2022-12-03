@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/labstack/echo/v4"
-	controller "github.com/salamanderman234/simple-api/controllers/user"
+	usercontroller "github.com/salamanderman234/simple-api/controllers/user.controller"
 )
 
 type userRoute struct {
@@ -20,6 +20,7 @@ func (u *userRoute) getPrefix() string {
 }
 
 func (u *userRoute) register(router *echo.Echo) {
-	router.GET(newUrl(u, ""), controller.UserController)
-	router.GET(newUrl(u, "/get"), controller.UserGetController)
+	router.GET(newUrl(u, ""), usercontroller.UserController)
+	router.GET(newUrl(u, "/get"), usercontroller.UserGetController)
+	router.GET(newUrl(u, "/new"), usercontroller.AddUserController)
 }

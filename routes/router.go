@@ -8,13 +8,13 @@ type route interface {
 }
 
 func Init() *echo.Echo {
-	routesList := []route{
+	routes := []route{
 		newUserRoute(),
 	}
 	router := echo.New()
 
-	for _, element := range routesList {
-		element.register(router)
+	for _, route := range routes {
+		route.register(router)
 	}
 
 	return router
